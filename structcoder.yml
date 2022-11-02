@@ -217,4 +217,4 @@ dependencies:
     - widgetsnbextension==3.6.0
     - xxhash==3.0.0
     - yarl==1.7.2
-prefix: /home/tsaisindhura/anaconda3/envs/structcoder
+prefix: /usr/local/bin/conda/envs/structcoder
