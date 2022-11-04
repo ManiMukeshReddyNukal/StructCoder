@@ -106,7 +106,7 @@ class Example(object):
 
 def read_examples(split, args):
     examples = []
-    with open('../../datasets/concode/'+split+'.json') as f:
+    with open('/content/drive/MyDrive/datasets/concode/'+split+'.json') as f:
         for idx, line in enumerate(f):
             x = json.loads(line)
             examples.append(
@@ -374,7 +374,7 @@ def main():
                         help="Batch size per GPU/CPU for training.")
     parser.add_argument("--eval_batch_size", default=16, type=int,
                         help="Batch size per GPU/CPU for evaluation.")
-    parser.add_argument('--gradient_accumulation_steps', type=int, default=1,
+    parser.add_argument('--gradient_accumulation_steps', type=int, default=2,
                         help="Number of updates steps to accumulate before performing a backward/update pass.")
     parser.add_argument("--learning_rate", default=5e-5, type=float,
                         help="The initial learning rate for Adam.")
@@ -653,8 +653,8 @@ def main():
                                        train_ast_path_loss, round(tr_ast_path_ret['match']/tr_ast_path_ret['total'],3) ))
 #                 logger.info(" loss weights {} {} {}".format(train_alpha[0], train_alpha[1], train_alpha[2]))
                 with torch.no_grad():
-                    alpha1, alpha2 = model.module.alpha1.detach().cpu().numpy(), \
-                                             model.module.alpha2.detach().cpu().numpy()
+                    alpha1, alpha2 = model.alpha1.detach().cpu().numpy(), \
+                                             model.alpha2.detach().cpu().numpy()
                 logger.info(" loss weights {} {}".format(alpha1, alpha2))
                 
             if args.do_eval and ((global_step + 1) %args.eval_steps == 0) and eval_flag:

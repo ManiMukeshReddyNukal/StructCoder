@@ -6,6 +6,7 @@ channels:
   - anaconda
   - defaults
 dependencies:
+  - pip=21.2.4=py39h06a4308_0
   - pip:
     - aiohttp==3.8.1
     - aiosignal==1.2.0
@@ -156,7 +157,6 @@ dependencies:
     - pexpect=4.8.0=pyhd3eb1b0_3
     - pickleshare=0.7.5=pyhd3eb1b0_1003
     - pillow=8.4.0=py39h5aabda8_0
-    - pip=21.2.4=py39h06a4308_0
     - pixman=0.38.0=h516909a_1003
     - prompt-toolkit=3.0.8=py_0
     - protobuf=3.19.1=py39h295c915_0
